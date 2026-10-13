@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYbnQylS2zsvJmeaI1pKSmRqgwKmFbuDqukYlEEySy6Q&s=10"
+    />
+    <title>Form</title>
+
+    <style>
+      button {
+        background-color: blue;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+      }
+
+      form {
+        background-color: orange;
+        padding: 20px;
+        max-width: 400px;
+        border-radius: 15px;
+        margin: 0 auto;
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      input {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form action="/submit" method="post">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required /><br /><br />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required /><br /><br />
+
+      <label for="password" id="password" name="password" required
+        >Password:</label
+      >
+      <input
+        type="password"
+        id="password"
+        name="password"
+        required
+      /><br /><br />
+
+      <label for="age">Age:</label>
+      <input
+        type="number"
+        id="age"
+        name="age"
+        min="1"
+        max="100"
+        required
+      /><br /><br />
+
+      <input type="radio" id="male" name="gender" value="male" required />
+      <label for="male">Male</label>
+
+      <input type="radio" id="female" name="gender" value="female" required />
+      <label for="female">Female</label><br /><br />
+
+      <label for="other">Interested Area:</label><br /><br />
+      <input
+        type="checkbox"
+        id="interested"
+        name="interested"
+        value="Full stack Developer"
+      />
+      <label for="full">Full Stack Developer</label><br /><br />
+      <input
+        type="checkbox"
+        id="interested"
+        name="interested"
+        value="Full stack Developer"
+      />
+      <label for="software">Software Engineer</label><br /><br />
+      <input
+        type="checkbox"
+        id="interested"
+        name="interested"
+        value="Full stack Developer"
+      />
+      <label for="frontend">Frontend Developer</label><br /><br />
+      <input
+        type="checkbox"
+        id="interested"
+        name="interested"
+        value="Full stack Developer"
+      />
+      <label for="backend">Backend Developer</label><br /><br />
+
+      <label for="date">Select Date:</label>
+      <input type="date" id="date" name="date" required /><br /><br />
+
+      <label for="event">Select Event:</label>
+      <select id="event" name="event">
+        <option value="orientation">Orientation Day</option>
+        <option value="tech_talk">Tech Talk</option>
+        <option value="workshop_ai">Workshop on AI</option></select
+      ><br /><br />
+
+      <div class="button-container">
+        <button type="submit" value="Register">Register</button>
+        <button type="reset" value="Reset">Reset</button>
+      </div>
+    </form>
+  </body>
+</html>
