@@ -82,32 +82,25 @@ const student = {
 };
 
 const { name, age } = student;
-
 console.log(name); // Output: Karthik
 console.log(age); // Output: 21 
 
 // Task 11
 const numbers = [10, 20, 30];
-
 const copiedNumbers = [...numbers];
-
 console.log("Copied array:", copiedNumbers); // Output: [10, 20, 30]
 
 const moreNumbers = [40, 50, 60];
-
 const combinedArray = [...numbers, ...moreNumbers];
-
 console.log("Combined array:", combinedArray); // Output: [10, 20, 30, 40, 50, 60]
 
 // Task 12
 
 function addNumbers(...numbers) {
   let sum = 0;
-
   for (const number of numbers) {
     sum += number;
   }
-
   return sum;
 }
 
@@ -125,7 +118,6 @@ const users = {
 };
 
 const city = users?.address?.city ?? "City not available";
-
 console.log(city); // Output: Chennai
 
 const anotherUser = {
@@ -133,5 +125,57 @@ const anotherUser = {
 };
 
 const anotherCity = anotherUser?.address?.city ?? "City not available";
-
 console.log(anotherCity); // Output: City not available
+
+
+// SCOPE, HOISTING AND CLOSURE
+
+// create a global CampusName and print it from inside a function
+
+const CampusName = "SAEC";
+function campus(){
+  console.log(CampusName);
+}
+campus(); // Output: SAEC
+
+// create an if block with let and var variables; teest which is  accessible outside
+
+if(true){
+    var varVariable = "var variable";
+    let letVariable = "let variable";
+}
+console.log(varVariable); // var variable
+// console.log(letVariable); // Output: ReferenceError: letVariable is not defined
+
+
+// predict car and let behavior when logged before declaration
+
+console.log(x); // Output: undefined
+var x = 5;
+console.log(x);
+
+
+// let and const
+
+// console.log(y); // ReferenceError: Cannot access 'y' before initialization
+let y = 5;
+console.log(y);
+
+// Create makeCounter with a private variable count and return a function that increments it
+
+function makeCounter() {
+  let count = 0;
+  function addition() {
+    count++;
+    console.log(count)
+  }
+  return addition;
+}
+const counter = makeCounter();
+counter(); // Output: 1
+counter(); // Output: 2
+
+const counter2 = makeCounter();
+counter2(); // Output: 1
+counter2(); // Output: 2
+
