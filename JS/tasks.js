@@ -33,3 +33,105 @@ let result1 = arr4.reduce((sum, num) => {
         return sum + num
 }, 0);
 console.log(result1);
+
+// Task 7
+const book = {
+  title: "JavaScript Basics",
+  author: "John Smith",
+  price: 500
+};
+
+console.log("Before update:", book);
+
+book.price = 650;
+
+console.log("After update:", book);
+console.log("Updated Price:", book.price);
+
+// Task 8
+
+const user = {
+  name: "Karthik",
+  age: 21,
+  address: {
+    city: "Chennai",
+    country: "India"
+  }
+};
+
+console.log(user.address.city);
+
+// Task 9
+
+const products = [
+  { name: "Laptop", price: 50000 },
+  { name: "Mobile", price: 20000 },
+  { name: "Headphones", price: 1500 }
+];
+
+products.forEach(function (product) {
+  console.log(product.name);
+});
+
+// Task 10
+
+const student = {
+  name: "Karthik",
+  age: 21,
+  department: "CSE"
+};
+
+const { name, age } = student;
+
+console.log(name);
+console.log(age);
+
+// Task 11
+const numbers = [10, 20, 30];
+
+const copiedNumbers = [...numbers];
+
+console.log("Copied array:", copiedNumbers);
+
+const moreNumbers = [40, 50, 60];
+
+const combinedArray = [...numbers, ...moreNumbers];
+
+console.log("Combined array:", combinedArray);
+
+// Task 12
+
+function addNumbers(...numbers) {
+  let sum = 0;
+
+  for (const number of numbers) {
+    sum += number;
+  }
+
+  return sum;
+}
+
+console.log(addNumbers(10, 20));
+console.log(addNumbers(10, 20, 30));
+console.log(addNumbers(10, 20, 30, 40, 50));
+
+// Task 13
+
+const users = {
+  name: "Karthik",
+  address: {
+    city: "Chennai"
+  }
+};
+
+const city = users?.address?.city ?? "City not available";
+
+console.log(city);
+
+const anotherUser = {
+  name: "Rahul"
+};
+
+const anotherCity = anotherUser?.address?.city ?? "City not available";
+
+console.log(anotherCity);
