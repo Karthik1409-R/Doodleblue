@@ -2,37 +2,37 @@
 
 // Task 1
 const calculate = (price, quantity) => {
-    return price * quantity;
+    return price * quantity; 
 }
-console.log(calculate(10, 3));
+console.log(calculate(10, 3)); // Output: 30
 
 // Task 2
 function greet(name){
-    console.log("Hello", name);
+    console.log("Hello", name); // Output: Hello Karthik!
 }
-greet("Karthik!")
+greet("Karthik!") 
 
 // Task 3 
 let arr = [1,2,3,4,5];
-console.log(arr.length);
+console.log(arr.length); // Output: 5
 
 // Task 4
 let arr3 = [1,2,3,4,5,6];
 let ans = arr3.filter(num => num % 2 == 0);
-console.log(ans);
+console.log(ans); // Output: [2, 4, 6]
 
 // Task 5
 let arr2 = [1,2,3,4,5,6];
 let result = arr2.map(num => num * 3);
 // console.log(arr2);
-console.log(result);
+console.log(result); // Output: [3, 6, 9, 12, 15, 18]
 
 // Task 6
 let arr4 = [1,2,3,4,5,6];
 let result1 = arr4.reduce((sum, num) => {
         return sum + num
 }, 0);
-console.log(result1);
+console.log(result1); // Output: 21
 
 // Task 7
 const book = {
@@ -46,7 +46,7 @@ console.log("Before update:", book);
 book.price = 650;
 
 console.log("After update:", book);
-console.log("Updated Price:", book.price);
+console.log("Updated Price:", book.price); // Output: 650
 
 // Task 8
 
@@ -59,7 +59,7 @@ const user = {
   }
 };
 
-console.log(user.address.city);
+console.log(user.address.city); // Output: Chennai
 
 // Task 9
 
@@ -70,7 +70,7 @@ const products = [
 ];
 
 products.forEach(function (product) {
-  console.log(product.name);
+  console.log(product.name); // Output: Laptop, Mobile, Headphones
 });
 
 // Task 10
@@ -83,21 +83,21 @@ const student = {
 
 const { name, age } = student;
 
-console.log(name);
-console.log(age);
+console.log(name); // Output: Karthik
+console.log(age); // Output: 21 
 
 // Task 11
 const numbers = [10, 20, 30];
 
 const copiedNumbers = [...numbers];
 
-console.log("Copied array:", copiedNumbers);
+console.log("Copied array:", copiedNumbers); // Output: [10, 20, 30]
 
 const moreNumbers = [40, 50, 60];
 
 const combinedArray = [...numbers, ...moreNumbers];
 
-console.log("Combined array:", combinedArray);
+console.log("Combined array:", combinedArray); // Output: [10, 20, 30, 40, 50, 60]
 
 // Task 12
 
@@ -111,9 +111,9 @@ function addNumbers(...numbers) {
   return sum;
 }
 
-console.log(addNumbers(10, 20));
-console.log(addNumbers(10, 20, 30));
-console.log(addNumbers(10, 20, 30, 40, 50));
+console.log(addNumbers(10, 20)); // Output: 30
+console.log(addNumbers(10, 20, 30)); // Output: 60
+console.log(addNumbers(10, 20, 30, 40, 50)); // Output: 150
 
 // Task 13
 
@@ -126,7 +126,7 @@ const users = {
 
 const city = users?.address?.city ?? "City not available";
 
-console.log(city);
+console.log(city); // Output: Chennai
 
 const anotherUser = {
   name: "Rahul"
@@ -134,4 +134,4 @@ const anotherUser = {
 
 const anotherCity = anotherUser?.address?.city ?? "City not available";
 
-console.log(anotherCity);
+console.log(anotherCity); // Output: City not available
