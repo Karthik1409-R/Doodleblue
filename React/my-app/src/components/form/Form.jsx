@@ -1,9 +1,43 @@
 import React from 'react'
+import { useState } from 'react'
 
-function Form() {
+const initialForm = {
+  studentName:"",
+  Email:"",
+  department:"",
+  yearOfStudy:"",
+  password:"",
+  attendanceType:"In Person",
+  needAccessibility:false,
+  eventId:"",
+  message:"",
+}
+function Form({event}) {
+  
+  const [formData, setFormData] = useState(initialForm);
+  const [errors, setErrors] = useState({});
+  const [registration, setRegistration] = useState(null);
+  const [submissionStatus, setSubmissionStatus] = useState("idle");
 
   
 
+  function handleChange(event){
+    const {name, value, type, checked} = event.target
+
+    setFormData({
+      ...formData,
+      [name]: type === "checkbox" ? checked : value,
+    })
+
+    setErrors({
+      ...errors,
+      [name]:""
+    })
+  }
+
+  function handleSubmit(event){
+    event.
+  }
 
   return (
     <form action="">
