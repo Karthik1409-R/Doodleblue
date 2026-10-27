@@ -1,0 +1,144 @@
+
+
+.events-section {
+  padding: 60px 8%;
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+
+
+.events-header {
+  margin-bottom: 35px;
+}
+
+.events-subtitle {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.events-header h2 {
+  color: #0f172a;
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.events-description {
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.event-card {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.1);
+}
+
+.event-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+  padding: 16px;
+  background: linear-gradient(145deg, #4338ca, #2563eb);
+  color: #ffffff;
+}
+
+.event-image span {
+  font-size: 20px;
+  font-weight: 800;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.event-content {
+  padding: 24px;
+  min-width: 0;
+}
+
+.event-category {
+  color: #4338ca;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.event-content h3 {
+  color: #0f172a;
+  font-size: 22px;
+  line-height: 1.4;
+  margin: 10px 0;
+  overflow-wrap: anywhere;
+}
+
+.event-description {
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.event-info {
+  color: #475569;
+  font-size: 14px;
+  margin-bottom: 10px;
+  overflow-wrap: anywhere;
+}
+
+.event-info strong {
+  color: #1e293b;
+}
+
+.event-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.event-actions button {
+  padding: 11px 15px;
+  border: none;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.register-btn {
+  background-color: #4338ca;
+  color: #ffffff;
+}
+
+.register-btn:hover {
+  background-color: #3730a3;
+}
+
+.favorite-btn {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.favorite-btn:hover {
+  background-color: #fde68a;
+}
