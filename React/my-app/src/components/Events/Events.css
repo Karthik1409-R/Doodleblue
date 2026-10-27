@@ -1,106 +1,151 @@
 
-
+/* Events Section */
 .events-section {
-  padding: 60px 8%;
-  background-color: #f8fafc;
-  min-height: 100vh;
+  min-height: auto;
+  padding: 35px 5% 20px;
+  background: #f8fafc;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #0f172a;
+  margin: 0;
+  height: auto;
 }
 
+/* Header and Add Event Button */
+.events-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
 
 .events-header {
-  margin-bottom: 35px;
+  margin: 0;
 }
 
 .events-subtitle {
   color: #64748b;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 2px;
-  margin-bottom: 12px;
+  margin: 0 0 10px;
 }
 
 .events-header h2 {
-  color: #0f172a;
   font-size: 32px;
-  margin-bottom: 12px;
+  font-weight: 700;
+  margin: 0 0 10px;
 }
 
 .events-description {
   color: #64748b;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.6;
+  margin: 0;
 }
 
+/* Add Event Button */
+.add-event-btn {
+  flex-shrink: 0;
+  background: #1677c8;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  padding: 12px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.add-event-btn:hover {
+  background: #125da0;
+}
+
+/* Three-column CSS Grid */
 .events-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
 }
 
+/* Event Card */
 .event-card {
-  display: grid;
-  grid-template-columns: 180px minmax(0, 1fr);
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .event-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.1);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.09);
 }
 
+/* Blue Category Panel */
 .event-image {
+  min-height: 145px;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 250px;
-  padding: 16px;
-  background: linear-gradient(145deg, #4338ca, #2563eb);
+  padding: 20px;
+  background: linear-gradient(135deg, #1748bc, #0868d7);
   color: #ffffff;
 }
 
 .event-image span {
-  font-size: 20px;
-  font-weight: 800;
   text-align: center;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 1px;
   overflow-wrap: anywhere;
 }
 
+/* Card Content */
 .event-content {
-  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 18px;
   min-width: 0;
 }
 
 .event-category {
-  color: #4338ca;
-  font-size: 12px;
+  color: #475569;
+  font-size: 10px;
   font-weight: 800;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
+  margin-bottom: 8px;
 }
 
 .event-content h3 {
   color: #0f172a;
-  font-size: 22px;
+  font-size: 19px;
   line-height: 1.4;
-  margin: 10px 0;
+  margin: 0 0 10px;
   overflow-wrap: anywhere;
 }
 
 .event-description {
   color: #475569;
-  font-size: 14px;
-  line-height: 1.7;
-  margin-bottom: 18px;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0 0 14px;
 }
 
 .event-info {
   color: #475569;
-  font-size: 14px;
-  margin-bottom: 10px;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0 0 7px;
   overflow-wrap: anywhere;
 }
 
@@ -108,37 +153,118 @@
   color: #1e293b;
 }
 
+/* Action Buttons */
 .event-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 20px;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 12px;
 }
 
 .event-actions button {
-  padding: 11px 15px;
   border: none;
-  border-radius: 7px;
-  font-size: 13px;
+  border-radius: 6px;
+  padding: 9px 11px;
+  font-size: 11px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.event-actions button:hover {
+  transform: translateY(-1px);
 }
 
 .register-btn {
-  background-color: #4338ca;
+  background: #1758cf;
   color: #ffffff;
 }
 
 .register-btn:hover {
-  background-color: #3730a3;
+  background: #1043a4;
 }
 
 .favorite-btn {
-  background-color: #fef3c7;
-  color: #92400e;
+  background: #f3e8c9;
+  color: #78551b;
 }
 
 .favorite-btn:hover {
-  background-color: #fde68a;
+  background: #ead9aa;
+}
+
+.favorite-btn.is-favorite {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.remove-btn {
+  background: #fce7e7;
+  color: #a33b48;
+}
+
+.remove-btn:hover {
+  background: #f8d0d0;
+}
+
+/* Empty State */
+.empty-events {
+  padding: 30px 20px;
+  text-align: center;
+  color: #64748b;
+  background: white;
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  margin: 0;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .events-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .events-section {
+    padding: 30px 4% 20px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+  .events-section {
+    padding: 25px 5% 15px;
+  }
+
+  .events-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .events-header h2 {
+    font-size: 27px;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .event-image {
+    min-height: 125px;
+  }
+
+  .event-content {
+    padding: 18px;
+  }
+
+  .event-content h3 {
+    font-size: 20px;
+  }
+
+  .event-actions button {
+    font-size: 12px;
+  }
 }
