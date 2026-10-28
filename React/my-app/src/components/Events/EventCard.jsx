@@ -1,12 +1,9 @@
 
 import React from 'react';
 
-function EventCard({
-  event,
-  onToggleRegistration,
-  onToggleFavorite,
-  onRemove,
-}) {
+function EventCard({ event }) {
+
+
   return (
     <article className="event-card">
       <div className="event-image">
@@ -29,13 +26,12 @@ function EventCard({
         </p>
 
         <p className="event-info">
-          <strong>Registrations:</strong> {event.registrations}
+          <strong>Registrations:</strong> {event.registrations ?? 0}
         </p>
 
         <div className="event-actions">
           <button
             className="register-btn"
-            onClick={() => onToggleRegistration(event.id)}
           >
             {event.isRegistered ? 'Cancel Registration' : 'Register'}
           </button>
@@ -44,14 +40,12 @@ function EventCard({
             className={`favorite-btn ${
               event.isFavorite ? 'is-favorite' : ''
             }`}
-            onClick={() => onToggleFavorite(event.id)}
           >
             {event.isFavorite ? '★ Favorited' : 'Add Favorite'}
           </button>
 
           <button
             className="remove-btn"
-            onClick={() => onRemove(event.id)}
           >
             Remove Event
           </button>

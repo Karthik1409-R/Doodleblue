@@ -1,97 +1,32 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import EventCard from './EventCard';
 import './Events.css';
+import { getAllEvents } from '../../services/eventService';
 
 function EventList() {
-  const [events, setEvents] = useState([
-    {
-      id: 1,
-      category: 'TECH',
-      title: 'Campus Tech Fest 2026',
-      description:
-        'Explore technology, discover new ideas, and connect with fellow students.',
-      date: 'November 5, 2026',
-      venue: 'Main Auditorium',
-      registrations: 0,
-      isRegistered: false,
-      isFavorite: false,
-    },
-    {
-      id: 2,
-      category: 'CULTURE',
-      title: 'Cultural Day',
-      description:
-        'Celebrate music, dance, art, and cultures from across campus.',
-      date: 'November 12, 2026',
-      venue: 'Open Air Theatre',
-      registrations: 0,
-      isRegistered: false,
-      isFavorite: false,
-    },
-    {
-      id: 3,
-      category: 'SPORTS',
-      title: 'Annual Sports Meet',
-      description:
-        'Participate in exciting sports activities and compete with fellow students.',
-      date: 'November 20, 2026',
-      venue: 'College Ground',
-      registrations: 0,
-      isRegistered: false,
-      isFavorite: false,
-    },
-  ]);
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const addSampleEvent = () => {
-    const newEvent = {
-      id: Date.now(),
-      category: 'WORKSHOP',
-      title: 'Web Development Workshop',
-      description:
-        'Learn modern web development and build exciting projects.',
-      date: 'November 25, 2026',
-      venue: 'Computer Lab',
-      registrations: 0,
-      isRegistered: false,
-      isFavorite: false,
-    };
+  
 
-    setEvents(previousEvents => [...previousEvents, newEvent]);
-  };
+  useEffect(() => {
+    fetchEvents();
+  }, []);
 
-  const toggleRegistration = id => {
-    setEvents(previousEvents =>
-      previousEvents.map(event => {
-        if (event.id !== id) return event;
-
-        const isRegistering = !event.isRegistered;
-
-        return {
-          ...event,
-          isRegistered: isRegistering,
-          registrations:
-            event.registrations + (isRegistering ? 1 : -1),
-        };
-      })
-    );
-  };
-
-  const toggleFavorite = id => {
-    setEvents(previousEvents =>
-      previousEvents.map(event =>
-        event.id === id
-          ? { ...event, isFavorite: !event.isFavorite }
-          : event
-      )
-    );
-  };
-
-  const removeEvent = id => {
-    setEvents(previousEvents =>
-      previousEvents.filter(event => event.id !== id)
-    );
-  };
+  async function fetchEvents() {
+    try {
+      setLoading(true);
+      setError('');
+      const data = await getAllEvents();
+      setEvents(data);
+    } catch (error) {
+      setError('Could not fetch events. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
     <section className="events-section" id="events">
@@ -104,28 +39,26 @@ function EventList() {
           </p>
         </div>
 
-        <button className="add-event-btn" onClick={addSampleEvent}>
-          + Add Sample Event
-        </button>
       </div>
 
-      <div className="events-grid">
-        {events.map(event => (
-          <EventCard
-            key={event.id}
-            event={event}
-            onToggleRegistration={toggleRegistration}
-            onToggleFavorite={toggleFavorite}
-            onRemove={removeEvent}
-          />
-        ))}
-      </div>
+      {loading && <p className="empty-events">Loading events...</p>}
+      {error && <p className="empty-events">{error}</p>}
 
-      {events.length === 0 && (
-        <p className="empty-events">
-          No events available. Add a sample event to get started.
-        </p>
+      {!loading && !error && (
+        <div className="events-grid">
+          {events.map(event => (
+            <EventCard
+              key={event.id}
+              event={event}
+            />
+          ))}
+        </div>
       )}
+
+      {!loading && !error && events.length === 0 && (
+        <p className="empty-events">No events available right now.</p>
+      )}
+
     </section>
   );
 }
