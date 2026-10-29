@@ -6,13 +6,15 @@ import { getAllEvents } from '../../services/eventService';
 
 function EventList() {
   const [events, setEvents] = useState([]);
+  const [search, setSearch] = useState('');
+  const [debouncedSearch, setDebouncedSearch] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  
+
 
   useEffect(() => {
-    fetchEvents();
+    fetchEvents();;
   }, []);
 
   async function fetchEvents() {
@@ -28,6 +30,25 @@ function EventList() {
     }
   }
 
+  // it is for search
+
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setDebouncedSearch(search.trim().toLowerCase());
+  //   }, 300);
+
+  //   return () => clearTimeout(timer);
+  // }, [search]);
+
+  const filteredEvents = events.filter(event => {
+
+    const query = debouncedSearch;
+
+    return (
+      event.title?.toLowerCase().includes(query)
+    )
+  });
+
   return (
     <section className="events-section" id="events">
       <div className="events-top">
@@ -41,22 +62,41 @@ function EventList() {
 
       </div>
 
+      <div className="events-search">
+        <input
+          type="search"
+          placeholder="Search events by title or venue"
+          value={search}
+          onChange={(event) => setSearch(event.target.value)}
+          aria-label="Search events"
+        />
+
+        <button type="button"
+          onClick={() => setDebouncedSearch(search)}
+        >
+          Search
+        </button>
+      </div>
+
       {loading && <p className="empty-events">Loading events...</p>}
       {error && <p className="empty-events">{error}</p>}
 
       {!loading && !error && (
-        <div className="events-grid">
-          {events.map(event => (
-            <EventCard
-              key={event.id}
-              event={event}
-            />
-          ))}
-        </div>
-      )}
+        <>
+          <div className="events-grid">
+            {filteredEvents.map((event) => (
+              <EventCard key={event.id} event={event} />
+            ))}
+          </div>
 
-      {!loading && !error && events.length === 0 && (
-        <p className="empty-events">No events available right now.</p>
+          {filteredEvents.length === 0 && (
+            <p className="empty-events">
+              {events.length === 0
+                ? 'No events available right now.'
+                : 'No matching events found.'}
+            </p>
+          )}
+        </>
       )}
 
     </section>

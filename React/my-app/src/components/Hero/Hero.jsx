@@ -1,6 +1,7 @@
 
 import React from 'react';
 import './Hero.css';
+import { Link } from 'react-router-dom';
 
 function Hero() {
   return (
@@ -20,9 +21,9 @@ function Hero() {
           make the most of your college life.
         </p>
 
-        <button className="hero-button">
+        <Link to="/events" className="hero-button">
           Explore Events →
-        </button>
+        </Link>
       </div>
     </section>
   );

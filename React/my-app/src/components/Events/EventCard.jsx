@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function EventCard({ event }) {
 
@@ -30,11 +31,11 @@ function EventCard({ event }) {
         </p>
 
         <div className="event-actions">
-          <button
-            className="register-btn"
-          >
-            {event.isRegistered ? 'Cancel Registration' : 'Register'}
-          </button>
+          <Link to="/form">
+            <button className="register-btn">
+              Register
+            </button>
+          </Link>
 
           <button
             className={`favorite-btn ${

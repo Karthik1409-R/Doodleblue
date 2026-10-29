@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './Form.css';
 
 const initialForm = {
@@ -18,6 +18,11 @@ function Form({ event }) {
   const [formData, setFormData] = useState(initialForm);
   const [errors, setErrors] = useState({});
   const [registration, setRegistration] = useState(null);
+  const nameInputRef = useRef(null);
+
+  useEffect(() => {
+    nameInputRef.current.focus();
+  })
 
   const events = event
     ? Array.isArray(event) ? event : [event]
@@ -112,6 +117,7 @@ function Form({ event }) {
           <div className="form-group">
             <label htmlFor="studentName">Student name *</label>
             <input
+              ref={nameInputRef}
               id="studentName"
               name="studentName"
               type="text"

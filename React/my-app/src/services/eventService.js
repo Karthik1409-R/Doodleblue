@@ -5,3 +5,4 @@ export async function getAllEvents(){
     const response = await fetch(API_URL);
     return response.json();
 }
+
